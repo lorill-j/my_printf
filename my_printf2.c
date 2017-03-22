@@ -37,28 +37,37 @@ int	check_argnbr(const char *str)
       k = 0;
       i++;
     }
-  if (j == 0)
-    my_putstr(str);
   return (j);
 }
 
-void my_strreplace(const char *str)
+void	 my_streplace(const char *str, int arg_nbr, char **next_arg)
 {
-  int i;
-  int k;
-  char *specifier;
+	 int k;
+	 int i;
+	 int j;
+	 char *specifier;
 
-  specifier = "scid";
-  i = 0;
-  k = 0;
-  while (str[i] != '\0')
-    {
-      while (str[i] != '%' && str[i + 1] != specifier[k])
-	my_putchar(str[i]);
-      
-      i++;
-      k++;
-    }
+    specifier = "scid";
+    k = 0;
+    i = 0;
+    j = 0;
+    while(str[i] != '\0')
+      {
+	while (k != arg_nbr)
+	  {
+	    if (str[i] == '%' && str[i + 1] == specifier[k])
+	      {
+		my_putstr(next_arg[j]);
+		my_putstr(" ");
+		j++;
+	      }
+	    else
+	      my_putchar(str[i]);
+	    k++;
+	  }
+	k = 0;
+	i++;
+      }
 }
 
 int	my_printf(const char *str, ...)
@@ -82,16 +91,16 @@ int	my_printf(const char *str, ...)
 	next_arg[i] = arg;
 	i++;
       }
-    my_strreplace(str);
+    my_streplace(str, arg_nbr, next_arg);
     va_end(ap);
     return (0);
 }
-
-int	main(int ac, char **av)
+ 
+int	main(int ac, char**av)
 {
   my_printf("1 - une chaine\n");
   my_printf("2 - %s\n", "une autre chaine");
-  my_printf("3 - %s %s\n", "42", "bite");
-  my_printf("4 - %s %s %s%s", "avec", "4", "parametres", "\n");
+  my_printf("3 - %i\n", "42");
+  my_printf("4 - %s %d %s%c", "avec", "4", "parametres", "\n");
   return (0);
 }
