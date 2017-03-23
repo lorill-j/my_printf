@@ -62,10 +62,10 @@ char	**my_str_to_wordtab(char *str)
   i = 0;
   j = 0;
   count = my_count_word(str);
-  strcp = malloc(count * sizeof(char *) + 1);
+  if ((strcp = malloc(count * sizeof(char *) + 1)) != NULL);
   while (count != 0)
     {
-      strcp[j] = malloc(my_strlen(str) * sizeof(char) + 1);
+      if ((strcp[j] = malloc(my_strlen(str) * sizeof(char) + 1)) != NULL);
       count--;
       j++;
     }

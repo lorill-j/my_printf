@@ -1,3 +1,9 @@
+#ifndef     _lib_H_
+# define    _lib_H_
+#endif      /* !_FOO_H_ */
+
+#define SPECIFIERS "SCID"
+
 void my_putchar(char c);
 
 void my_putstr(const char *str);
