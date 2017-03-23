@@ -12,61 +12,79 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "lib.h"
+#define SPECIFIERS "scid"
 
 int	check_argnbr(const char *str)
 {
 	int i;
 	int j;
 	int str_len;
-	char *specifier;
 	int k;
 
-  specifier = "scid";
   i = 0;
   j = 0;
   k = 0;
   while (str[i] != '\0')
     {
-      str_len = my_strlen(specifier);
+      str_len = my_strlen(SPECIFIERS);
       while (k != str_len)
 	{
-	  if (str[i] == '%' && str[i + 1] == specifier[k])
+	  if (str[i] == '%' && str[i + 1] == SPECIFIERS[k])
 	      j++;
 	  k++;
 	}
       k = 0;
       i++;
     }
+  if (j == 0)
+    my_putstr(str);
   return (j);
 }
 
-void	 my_streplace(const char *str, int arg_nbr, char **next_arg)
+int	is_specifier(char c)
 {
-	 int k;
-	 int i;
-	 int j;
-	 char *specifier;
+	int i;
+  
+  i = 0;
+  while (SPECIFIERS[i] != '\0')
+    {
+      if (SPECIFIERS[i] == c)
+	  return (1);
+      i++;
+    }
+  return (0);
+}
 
-    specifier = "scid";
-    k = 0;
+void get_args(char c, char **args, int j)
+{
+  int bite;
+  
+  if (c == 's')
+    my_putstr(args[j]);
+   if (c == 'i')
+     {    
+       bite = my_getnbr(args[j]);
+       my_put_nbr(bite);
+     }
+ }
+  
+void	my_str_replace(const char *str, int arg_nb, char **args)
+{
+	int i;
+	int j;
+
     i = 0;
     j = 0;
-    while(str[i] != '\0')
+    while (str[i] != '\0')
       {
-	while (k != arg_nbr)
+	if (str[i] == '%' && is_specifier(str[i + 1]) && (j < arg_nb))
 	  {
-	    if (str[i] == '%' && str[i + 1] == specifier[k])
-	      {
-		my_putstr(next_arg[j]);
-		my_putstr(" ");
-		j++;
-	      }
-	    else
-	      my_putchar(str[i]);
-	    k++;
+	    get_args(str[i + 1], args, j);
+	    j++;
 	  }
-	k = 0;
-	i++;
+	else if (!is_specifier(str[i]) && str[i - 1] != '%') 
+	  my_putchar(str[i]);
+	  i++;
       }
 }
 
@@ -91,16 +109,17 @@ int	my_printf(const char *str, ...)
 	next_arg[i] = arg;
 	i++;
       }
-    my_streplace(str, arg_nbr, next_arg);
+    if (arg_nbr > 0)
+    my_str_replace(str, arg_nbr, next_arg);
     va_end(ap);
     return (0);
 }
- 
+
 int	main(int ac, char**av)
 {
   my_printf("1 - une chaine\n");
   my_printf("2 - %s\n", "une autre chaine");
-  my_printf("3 - %i\n", "42");
-  my_printf("4 - %s %d %s%c", "avec", "4", "parametres", "\n");
+  my_printf("3 - %s\n", "42");
+  my_printf("4 - %s %s %s%s", "avec", "4", "parametres", "\n");
   return (0);
 }
