@@ -1,8 +1,4 @@
-#ifndef     _lib_H_
-# define    _lib_H_
-#endif      /* !_FOO_H_ */
-
-#define SPECIFIERS "SCID"
+#define SPECIFIERS "scid"
 
 void my_putchar(char c);
 
