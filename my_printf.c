@@ -53,24 +53,26 @@ int		is_specifier(char c)
   return (0);
 }
 
-void		get_args(char c, char **args, int j)
+void		get_args(char c, int j, va_list ap)
 {
   if (c == 's')
-    my_putstr(args[j]);
+    my_putstr(va_arg(ap, char *));
+  if (c == 'i' || c == 'd')
+    my_put_nbr(va_arg(ap, int));
 }
 
-void		my_str_replace(const char *str, int arg_nb, char **args)
+void		my_str_replace(const char *str, int arg_nb, va_list ap)
 {
   int		i;
   int		j;
-  
+
   i = 0;
   j = 0;
   while (str[i] != '\0')
     {
       if (str[i] == '%' && is_specifier(str[i + 1]) && (j < arg_nb))
 	{
-	  get_args(str[i + 1], args, j);
+	  get_args(str[i + 1], j, ap);
 	  j++;
 	}
       else if (!is_specifier(str[i]) && str[i - 1] != '%') 
@@ -82,25 +84,13 @@ void		my_str_replace(const char *str, int arg_nb, char **args)
 int		my_printf(const char *str, ...)
 {
   va_list	ap;
-  char		**next_arg;
-  char		*arg;
-  int		i;
   int		arg_nbr;
   
   arg_nbr = 0;	
-  i = 0;
   arg_nbr = check_argnbr(str);
   va_start(ap, str);
-  if ((next_arg = malloc(arg_nbr * sizeof(char *) + 1)) != NULL)
-    while (i != arg_nbr)
-      {
-	arg = va_arg(ap, char *);
-	if ((next_arg[i] = malloc(my_strlen(arg) * sizeof(char) + 1)) != NULL)
-	  next_arg[i] = arg;
-	  i++;
-      }
   if (arg_nbr > 0)
-    my_str_replace(str, arg_nbr, next_arg);
+    my_str_replace(str, arg_nbr, ap);
   va_end(ap);
   return (0);
 }
@@ -108,8 +98,8 @@ int		my_printf(const char *str, ...)
 int		main(int ac, char**av)
 {
   my_printf("1 - une chaine\n");
-  my_printf("2 - %s\n", "une autre chaine");
-  my_printf("3 - %s\n", "42");
-  my_printf("4 - %s %s %s%s", "avec", "4", "parametres", "\n");
+  my_printf("2 - %s%s\n", "une autre chaine", "bite");
+  my_printf("3 - %i\n", 42);
+  my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
   return (0);
 }

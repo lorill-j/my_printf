@@ -12,12 +12,12 @@
 #include <stdio.h>
 #include "lib.h"
 
-int	check_argnbr(const char *str)
+int		check_argnbr(const char *str)
 {
-	int i;
-	int j;
-	int str_len;
-	int k;
+  int		i;
+  int		j;
+  int		str_len;
+  int		k;
   
   i = 0;
   j = 0;
@@ -39,9 +39,9 @@ int	check_argnbr(const char *str)
   return (j);
 }
 
-int	is_specifier(char c)
+int		is_specifier(char c)
 {
-	int i;
+  int		i;
   
   i = 0;
   while (SPECIFIERS[i] != '\0')
@@ -53,16 +53,18 @@ int	is_specifier(char c)
   return (0);
 }
 
-void get_args(char c, char **args, int j)
+void		get_args(char c, char **args, int j)
 {
   if (c == 's')
     my_putstr(args[j]);
+  else
+    my_putstr("fail");
 }
 
-void	my_str_replace(const char *str, int arg_nb, char **args)
+void		my_str_replace(const char *str, int arg_nb, char **args)
 {
-	int i;
-	int j;
+  int		i;
+  int		j;
   
   i = 0;
   j = 0;
@@ -79,13 +81,13 @@ void	my_str_replace(const char *str, int arg_nb, char **args)
     }
 }
 
-int	my_printf(const char *str, ...)
+int		my_printf(const char *str, ...)
 {
-	va_list ap;
-	char **next_arg;
-	char * arg;
-	int i;
-	int arg_nbr;
+  va_list	ap;
+  char		**next_arg;
+  char		*arg;
+  int		i;
+  int		arg_nbr;
   
   arg_nbr = 0;	
   i = 0;
@@ -105,11 +107,11 @@ int	my_printf(const char *str, ...)
   return (0);
 }
 
-int	main(int ac, char**av)
+int		main(int ac, char**av)
 {
   my_printf("1 - une chaine\n");
   my_printf("2 - %s\n", "une autre chaine");
-  my_printf("3 - %s\n", "42");
-  my_printf("4 - %s %s %s%s", "avec", "4", "parametres", "\n");
+  my_printf("3 - %i\n", "42");
+  my_printf("4 - %s %d %s%c", "avec", "4", "parametres", "\n");
   return (0);
 }
