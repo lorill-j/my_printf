@@ -53,7 +53,7 @@ int		is_specifier(char c)
   return (0);
 }
 
-void		get_args(char c, int j, va_list ap)
+void		get_args(char c, int j, va_list *ap)
 {
   if (c == 's')
     my_putstr(va_arg(ap, char *));
@@ -61,7 +61,7 @@ void		get_args(char c, int j, va_list ap)
     my_put_nbr(va_arg(ap, int));
 }
 
-void		my_str_replace(const char *str, int arg_nb, va_list ap)
+void		my_str_replace(const char *str, int arg_nb, va_list *ap)
 {
   int		i;
   int		j;
@@ -83,7 +83,7 @@ void		my_str_replace(const char *str, int arg_nb, va_list ap)
 
 int		my_printf(const char *str, ...)
 {
-  va_list	ap;
+  va_list	*ap;
   int		arg_nbr;
   
   arg_nbr = 0;	
