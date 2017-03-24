@@ -5,14 +5,13 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Tue Feb 07 09:09:21 2017 Lorillard Jimmy
-** Last update Fri Mar 24 15:55:53 2017 LORILLARD Jimmy
+** Last update Fri Mar 24 16:05:38 2017 LORILLARD Jimmy
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include "lib.h"
-#define SPECIFIERS "scidouxX"
 
 int		check_argnbr(const char *str)
 {
@@ -135,6 +134,16 @@ int		my_printf(const char *str, ...)
 
 int		main(int ac, char **av)
 {
+  t_bite tbite[6] =
+    {
+      {'s', &print_s},
+      {'i', &print_i},
+      {'d', &print_d},
+      {'c', &print_c},
+      {'u', &print_u},
+      {'o', &print_o}
+    };
+  
   my_printf("1 - une chaine\n");
   my_printf("2 - %s\n", "une autre chaine");
   my_printf("3 - %i\n", 42);

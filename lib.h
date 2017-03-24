@@ -2,6 +2,7 @@
 #define _LIB_H_
 
 #include <stdarg.h>
+#define SPECIFIERS "scidouxX"
 
 typedef struct s_bite
 {
@@ -20,16 +21,6 @@ void print_c(va_list ap);
 void print_u(va_list ap);
 
 void print_o(va_list ap);
-
-t_bite tbite[6] =
-  {
-    {'s', &print_s},
-    {'i', &print_i},
-    {'d', &print_d},
-    {'c', &print_c},
-    {'u', &print_u},
-    {'o', &print_o}
-  };
 
 void my_print_octal(int n);
 
