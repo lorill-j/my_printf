@@ -5,7 +5,7 @@
 ## Login   <lorill_j@etna-alternance.net>
 ## 
 ## Started on  Thu Oct  6 09:48:20 2016 Lorillard Jimmy
-## Last update Fri Mar 24 13:53:16 2017 LORILLARD Jimmy
+## Last update Fri Mar 24 15:04:20 2017 LORILLARD Jimmy
 ##
 
 NAME		=	my_printf
@@ -19,6 +19,7 @@ SRC 		= my_putchar.c \
 	        my_strncpy.c \
 		my_put_unbr.c \
 		my_put_nbr.c \
+		my_print_opts.c \
 		my_getnbr.c \
 	        my_strcmp.c \
 	        my_strncmp.c \
