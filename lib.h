@@ -1,4 +1,5 @@
 #define SPECIFIERS "scidouxX"
+#include <stdarg.h>
 
 typedef struct s_bite
 {
@@ -28,7 +29,7 @@ t_bite tbite[6] =
     {'o', &print_o}
   };
 
-void  my_putchar(char c);
+void my_putchar(char c);
 
 void my_putstr(const char *str);
 

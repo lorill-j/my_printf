@@ -1,6 +1,6 @@
 #include "lib.h"
 
-void printf_s(va_list ap)
+void print_s(va_list ap)
 {
   my_putstr(va_arg(ap, char *));
 }

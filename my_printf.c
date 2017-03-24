@@ -5,12 +5,11 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Tue Feb 07 09:09:21 2017 Lorillard Jimmy
-** Last update Fri Mar 24 14:21:51 2017 LORILLARD Jimmy
+** Last update Fri Mar 24 14:56:08 2017 LORILLARD Jimmy
 */
 #include <stdlib.h>
-#include <stdarg.h>
 #include <stdio.h>
-#include "my_print_opts.c"
+#include <stdarg.h>
 #include "lib.h"
 
 int		check_argnbr(const char *str)
@@ -83,7 +82,7 @@ void		my_print_octal(int n)
     }
 }
 
-void		get_args(char c, int j, va_list ap)
+void		get_args(char c, va_list ap)
 {
   int i;
   
