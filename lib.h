@@ -4,7 +4,7 @@
 typedef struct s_bite
 {
   char pointeur;
-  int (*fnc)(va_list ap); 
+  void (*fnc)(va_list ap); 
 } t_bite;
 
 void print_s(va_list ap);

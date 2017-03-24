@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Tue Feb 07 09:09:21 2017 Lorillard Jimmy
-** Last update Fri Mar 24 14:56:08 2017 LORILLARD Jimmy
+** Last update Fri Mar 24 15:01:28 2017 LORILLARD Jimmy
 */
 #include <stdlib.h>
 #include <stdio.h>
@@ -106,7 +106,7 @@ void		my_str_replace(const char *str, int arg_nb, va_list ap)
     {
       if (str[i] == '%' && is_specifier(str[i + 1]) && (j < arg_nb))
 	{
-	  get_args(str[i + 1], j, ap);
+	  get_args(str[i + 1], ap);
 	  j++;
 	}
       else if (!is_specifier(str[i]) && str[i - 1] != '%')  
