@@ -5,12 +5,14 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Tue Feb 07 09:09:21 2017 Lorillard Jimmy
-** Last update Fri Mar 24 15:13:01 2017 LORILLARD Jimmy
+** Last update Fri Mar 24 15:55:53 2017 LORILLARD Jimmy
 */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include "lib.h"
+#define SPECIFIERS "scidouxX"
 
 int		check_argnbr(const char *str)
 {

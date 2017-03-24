@@ -1,7 +1,7 @@
 #ifndef _LIB_H_
-# define _LIB_H_
+#define _LIB_H_
+
 #include <stdarg.h>
-#define SPECIFIERS "scidouxX"
 
 typedef struct s_bite
 {

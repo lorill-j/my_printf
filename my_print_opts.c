@@ -28,4 +28,3 @@ void print_o(va_list ap)
 {
   my_print_octal(va_arg(ap, int));
 }
-
