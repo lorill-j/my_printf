@@ -5,11 +5,12 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Tue Feb 07 09:09:21 2017 Lorillard Jimmy
-** Last update Fri Feb 10 16:49:08 2017 Lorillard Jimmy
+** Last update Fri Mar 24 14:21:51 2017 LORILLARD Jimmy
 */
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include "my_print_opts.c"
 #include "lib.h"
 
 int		check_argnbr(const char *str)
@@ -53,12 +54,46 @@ int		is_specifier(char c)
   return (0);
 }
 
+void		my_print_octal(int n)
+{
+  int		l;
+  int		j;
+  int		k;
+  int		*array;
+
+  l = 0;
+  k = 0;
+  j = n;
+  while (j >= 8)
+    {
+      j = j / 8;
+      k++;
+    }
+  if ((array = malloc((k + 1) * sizeof(int) + 1)) != NULL)
+    while (n > 0)
+      {
+	array[l] = n % 8;
+	n = n / 8;
+	l++;
+      }
+  while (k != -1)
+    {
+      my_put_nbr(array[k]);
+      k--;
+    }
+}
+
 void		get_args(char c, int j, va_list ap)
 {
-  if (c == 's')
-    my_putstr(va_arg(ap, char *));
-  else if (c == 'i' || c == 'd')
-    my_put_nbr(va_arg(ap, int));
+  int i;
+  
+  i = 0;
+  while (i != 6)
+    {
+      if (c == tbite[i].pointeur)
+	(tbite[i].fnc)(ap);
+      i++;
+    }
 }
 
 void		my_str_replace(const char *str, int arg_nb, va_list ap)
@@ -75,8 +110,10 @@ void		my_str_replace(const char *str, int arg_nb, va_list ap)
 	  get_args(str[i + 1], j, ap);
 	  j++;
 	}
-      else if (!is_specifier(str[i]) && str[i - 1] != '%') 
+      else if (!is_specifier(str[i]) && str[i - 1] != '%')  
 	my_putchar(str[i]);
+      else if (str[i] == '%' && str[i + 1] == '\n')
+	my_putchar(str[i + 1]);
       i++;
     }
 }
@@ -95,11 +132,14 @@ int		my_printf(const char *str, ...)
   return (0);
 }
 
-int		main(int ac, char**av)
+int		main(int ac, char **av)
 {
   my_printf("1 - une chaine\n");
-  my_printf("2 - %s%s\n", "une autre chaine", "bite");
+  my_printf("2 - %s\n", "une autre chaine");
   my_printf("3 - %i\n", 42);
-  my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
+  /* my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
+  my_printf("5 - %d%%\n", 42);
+  my_printf("6 - %u\n", (unsigned int)4200000000);
+  my_printf("7 - %o\n", 90000);*/
   return (0);
 }

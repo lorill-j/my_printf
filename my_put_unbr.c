@@ -5,40 +5,30 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Thu Oct  6 08:54:35 2016 Lorillard Jimmy
-** Last update Thu Oct  6 09:00:49 2016 Lorillard Jimmy
+** Last update Fri Mar 24 10:41:23 2017 LORILLARD Jimmy
 */
 
 #include <unistd.h>
 
 void	my_putchar(char c);
 
-void	my_put_nbr(int n);
+void	my_put_unbr(unsigned int n);
 
-void	my_put_int(int n);
+void	my_put_uint(unsigned int n);
 
 void	my_putstr(char *str);
 
-void	my_put_nbr(int n)
+void	my_put_unbr(unsigned int n)
 {
-  if (n == -2147483648)
-    {
-      my_putstr("-2147483648");
-      return ;
-    }
-  if (n < 0)
-    {
-      my_putchar('-');
-      n = - n;
-    }
   if (n < 10)
     my_putchar(n + '0');
   else if (n > 9)
-    my_put_int(n);
+    my_put_uint(n);
 }
 
-void	my_put_int(int n)
+void	my_put_uint(unsigned int n)
 {
-  int	k;
+  unsigned int k;
   int	j;
   int	i;
 

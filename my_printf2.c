@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Tue Feb 07 09:09:21 2017 Lorillard Jimmy
-** Last update Fri Feb 10 16:49:08 2017 Lorillard Jimmy
+** Last update Fri Mar 24 12:55:04 2017 LORILLARD Jimmy
 */
 #include <stdlib.h>
 #include <stdarg.h>
@@ -53,13 +53,53 @@ int		is_specifier(char c)
   return (0);
 }
 
+void	my_print_octal(int n)
+{
+  int	l;
+  int	j;
+  int	k;
+  int	*array;
+  
+  l = 0;
+  k = 0;
+  j = n;
+  while ( j >= 8)
+    {
+      j = j / 8;
+      k++;
+    }
+  k++;
+  array = malloc(k * sizeof(int) + 1);
+  j = n;
+    while (j >= 8)
+      {
+	array[l] = j % 8; // 2 1
+	j = j / 8;
+	l++;
+      }
+    if (j < 8)
+	array[l] = j;
+    l = (k - 1);
+    while (l != -1)
+      {
+	my_put_nbr(array[l]);
+	l--;
+      }
+}
+
 void		get_args(char c, int j, va_list ap)
 {
   if (c == 's')
     my_putstr(va_arg(ap, char *));
-  if (c == 'i' || c == 'd')
+  else if (c == 'i' || c == 'd')
     my_put_nbr(va_arg(ap, int));
-}
+  else if (c == 'c')
+    my_putchar(va_arg(ap, int));
+  else if (c == 'u')
+    my_put_unbr(va_arg(ap, unsigned int));
+  else if (c == 'o')
+    my_print_octal(va_arg(ap, int));
+ }
 
 void		my_str_replace(const char *str, int arg_nb, va_list ap)
 {
@@ -75,8 +115,10 @@ void		my_str_replace(const char *str, int arg_nb, va_list ap)
 	  get_args(str[i + 1], j, ap);
 	  j++;
 	}
-      else if (!is_specifier(str[i]) && str[i - 1] != '%') 
+      else if (!is_specifier(str[i]) && str[i - 1] != '%')  
 	my_putchar(str[i]);
+      else if (str[i] == '%' && str[i + 1] == '\n')
+	my_putchar(str[i + 1]);
       i++;
     }
 }
@@ -95,11 +137,14 @@ int		my_printf(const char *str, ...)
   return (0);
 }
 
-int		main(int ac, char**av)
+int		main(int ac, char **av)
 {
   my_printf("1 - une chaine\n");
-  my_printf("2 - %s%s\n", "une autre chaine", "bite");
+  my_printf("2 - %s\n", "une autre chaine");
   my_printf("3 - %i\n", 42);
   my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
+  my_printf("5 - %d%%\n", 42);
+  my_printf("6 - %u\n", (unsigned int)4200000000);
+  my_printf("7 - %o\n", 90000);
   return (0);
 }

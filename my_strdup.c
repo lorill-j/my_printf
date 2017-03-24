@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Thu Oct  6 09:42:06 2016 Lorillard Jimmy
-** Last update Thu Oct  6 10:15:40 2016 Lorillard Jimmy
+** Last update Fri Mar 24 08:56:43 2017 LORILLARD Jimmy
 */
 
 #include <unistd.h>
@@ -19,7 +19,7 @@ char	*my_strdup(char *str)
   int	i;
 
   i = my_strlen(str);
-  if ((strcp = malloc(i * sizeof(*strcp) + 1)) != NULL);
+  if ((strcp = malloc(i * sizeof(*strcp) + 1)) != NULL)
   i = 0;
   while (str[i] != '\0')
     {

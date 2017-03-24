@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Mon Oct  3 13:53:34 2016 Lorillard Jimmy
-** Last update Thu Oct  6 08:03:43 2016 Lorillard Jimmy
+** Last update Fri Mar 24 08:57:26 2017 LORILLARD Jimmy
 */
 
 #include <unistd.h>
@@ -62,10 +62,10 @@ char	**my_str_to_wordtab(char *str)
   i = 0;
   j = 0;
   count = my_count_word(str);
-  if ((strcp = malloc(count * sizeof(char *) + 1)) != NULL);
+  if ((strcp = malloc(count * sizeof(char *) + 1)) != NULL)
   while (count != 0)
     {
-      if ((strcp[j] = malloc(my_strlen(str) * sizeof(char) + 1)) != NULL);
+      if ((strcp[j] = malloc(my_strlen(str) * sizeof(char) + 1)) != NULL)
       count--;
       j++;
     }
