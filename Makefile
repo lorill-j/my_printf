@@ -1,11 +1,11 @@
 ##
-## Makefile for Makefile in /home/jimmy/libmy.a/libmy_03
+## Makefile for Makefile in /Users/lorill_j/my_printf.git/trunk
 ## 
-## Made by Lorillard Jimmy
+## Made by LORILLARD Jimmy
 ## Login   <lorill_j@etna-alternance.net>
 ## 
-## Started on  Thu Oct  6 09:48:20 2016 Lorillard Jimmy
-## Last update Fri Mar 24 15:04:20 2017 LORILLARD Jimmy
+## Started on  Fri Mar 24 16:27:08 2017 LORILLARD Jimmy
+## Last update Fri Mar 24 16:27:17 2017 LORILLARD Jimmy
 ##
 
 NAME		=	my_printf

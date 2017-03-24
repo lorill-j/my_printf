@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 24 16:27:47 2017 LORILLARD Jimmy
-** Last update Fri Mar 24 16:39:49 2017 LORILLARD Jimmy
+** Last update Fri Mar 24 16:32:30 2017 LORILLARD Jimmy
 */
 #include "my_printf.h"
 
@@ -33,4 +33,7 @@ void print_u(va_list ap)
 {
   my_put_unbr(va_arg(ap, unsigned int));
 }
-
+void print_o(va_list ap)
+{
+  my_print_octal(va_arg(ap, int));
+}

@@ -1,14 +1,23 @@
-#ifndef _LIB_H_
-#define _LIB_H_
+/*
+** lib.h for my_printf.h in /Users/lorill_j/my_printf.git/trunk
+** 
+** Made by LORILLARD Jimmy
+** Login   <lorill_j@etna-alternance.net>
+** 
+** Started on  Fri Mar 24 16:26:03 2017 LORILLARD Jimmy
+** Last update Fri Mar 24 16:50:42 2017 LORILLARD Jimmy
+*/
+#ifndef _MY_PRINTF_H_
+#define _MY_PRINTF_H_
 
 #include <stdarg.h>
 #define SPECIFIERS "scidouxX"
 
 typedef struct s_bite
 {
-  char pointeur;
+  char s_name;
   void (*fnc)(va_list ap); 
-} t_bite;
+} g_my_struct;
 
 void print_s(va_list ap);
 
@@ -58,4 +67,4 @@ char *my_strstr(char *str, char *to_find);
 
 void my_swap(int *a, int *b);
 
-#endif /* !_LIB_H_ */
+#endif /* !_MY_PRINTF_H_ */

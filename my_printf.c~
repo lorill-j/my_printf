@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Tue Feb 07 09:09:21 2017 Lorillard Jimmy
-** Last update Fri Mar 24 16:50:54 2017 LORILLARD Jimmy
+** Last update Fri Mar 24 16:48:20 2017 LORILLARD Jimmy
 */
 
 #include <stdlib.h>
@@ -14,7 +14,7 @@
 #include "check_specifiers.c"
 #include "my_printf.h"
 
-g_my_struct options[6] =
+g_bite options[6] =
   {
     {'s', &print_s},
     {'i', &print_i},
