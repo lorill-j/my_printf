@@ -1,5 +1,7 @@
-#define SPECIFIERS "scidouxX"
+#ifndef _LIB_H_
+# define _LIB_H_
 #include <stdarg.h>
+#define SPECIFIERS "scidouxX"
 
 typedef struct s_bite
 {
@@ -64,3 +66,5 @@ char *my_strncpy(char *dest, char *src, int n);
 char *my_strstr(char *str, char *to_find);
 
 void my_swap(int *a, int *b);
+
+#endif /* !_LIB_H_ */
