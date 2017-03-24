@@ -29,6 +29,8 @@ t_bite tbite[6] =
     {'o', &print_o}
   };
 
+void my_print_octal(int n);
+
 void my_putchar(char c);
 
 void my_putstr(const char *str);

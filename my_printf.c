@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Tue Feb 07 09:09:21 2017 Lorillard Jimmy
-** Last update Fri Mar 24 15:01:28 2017 LORILLARD Jimmy
+** Last update Fri Mar 24 15:13:01 2017 LORILLARD Jimmy
 */
 #include <stdlib.h>
 #include <stdio.h>
@@ -136,9 +136,9 @@ int		main(int ac, char **av)
   my_printf("1 - une chaine\n");
   my_printf("2 - %s\n", "une autre chaine");
   my_printf("3 - %i\n", 42);
-  /* my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
+  my_printf("4 - %s %d %s%c", "avec", 4, "parametres", '\n');
   my_printf("5 - %d%%\n", 42);
   my_printf("6 - %u\n", (unsigned int)4200000000);
-  my_printf("7 - %o\n", 90000);*/
+  my_printf("7 - %o\n", 90000);
   return (0);
 }
