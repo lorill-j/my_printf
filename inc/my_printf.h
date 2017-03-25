@@ -5,12 +5,13 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 24 16:26:03 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 19:51:31 2017 LORILLARD Jimmy
+** Last update Sat Mar 25 22:22:54 2017 LORILLARD Jimmy
 */
 
 #ifndef _MY_PRINTF_H_
 # define _MY_PRINTF_H_
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
@@ -55,6 +56,8 @@ void my_put_unbr(unsigned int n);
 void my_put_nbr(int n);
 
 void my_getnbr(char *str);
+
+void *xmalloc(int size);
 
 int my_strlen(char *str);
 

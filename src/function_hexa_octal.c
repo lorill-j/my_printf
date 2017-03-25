@@ -5,22 +5,10 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Sat Mar 25 14:44:28 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 22:03:26 2017 LORILLARD Jimmy
+** Last update Sat Mar 25 22:19:33 2017 LORILLARD Jimmy
 */
 
 #include "../inc/my_printf.h"
-
-
-void		*xmalloc(int i)
-{
-  void		*bite;
-  
-  if ((bite = malloc(i)) != NULL)
-    return (bite);
-  else
-    my_putstr("Malloc failed");
-  return (0);
-}
 
 void            my_print_octal(int n)
 {
@@ -88,7 +76,7 @@ void		my_maj_hexa(unsigned int n)
       k++;
     }
   l = k;
-  if ((hexa = malloc((k + 1) * sizeof(int) + 1)) != NULL)
+  hexa = xmalloc((k + 1) * sizeof(int));
     while (i >= 16)
       {
 	k = i % 16;
@@ -119,7 +107,7 @@ void		my_min_hexa(unsigned int n)
       k++;
     }
   l = k;
-  if ((hexa = malloc((k + 1) * sizeof(int) + 1)) != NULL)
+  hexa = malloc((k + 1) * sizeof(int));
     while (i >= 16)
       {
 	k = i % 16;
