@@ -5,10 +5,22 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Sat Mar 25 14:44:28 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 15:41:01 2017 LORILLARD Jimmy
+** Last update Sat Mar 25 22:03:26 2017 LORILLARD Jimmy
 */
 
 #include "../inc/my_printf.h"
+
+
+void		*xmalloc(int i)
+{
+  void		*bite;
+  
+  if ((bite = malloc(i)) != NULL)
+    return (bite);
+  else
+    my_putstr("Malloc failed");
+  return (0);
+}
 
 void            my_print_octal(int n)
 {
@@ -25,7 +37,7 @@ void            my_print_octal(int n)
       j = j / 8;
       k++;
     }
-  if ((octal = malloc((k + 1) * sizeof(int) +1)) != NULL)
+  octal = xmalloc((k + 1) * sizeof(int));
     while (n > 0)
       {
 	octal[l] = n % 8;

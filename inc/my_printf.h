@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 24 16:26:03 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 15:51:15 2017 LORILLARD Jimmy
+** Last update Sat Mar 25 19:51:31 2017 LORILLARD Jimmy
 */
 
 #ifndef _MY_PRINTF_H_
@@ -16,11 +16,11 @@
 
 #define SPECIFIERS "scidouxX"
 
-typedef struct s_funct
+typedef struct s_specifiers
 {
   char s_name;
   void (*fnc)(va_list ap);
-} g_specifiers;
+} t_specifiers;
 
 void print_s(va_list ap);
 
