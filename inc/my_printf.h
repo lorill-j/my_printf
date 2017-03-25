@@ -5,21 +5,22 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 24 16:26:03 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 15:16:12 2017 LORILLARD Jimmy
+** Last update Sat Mar 25 15:51:15 2017 LORILLARD Jimmy
 */
 
 #ifndef _MY_PRINTF_H_
-#define _MY_PRINTF_H_
+# define _MY_PRINTF_H_
 
 #include <stdlib.h>
 #include <stdarg.h>
+
 #define SPECIFIERS "scidouxX"
 
 typedef struct s_funct
 {
   char s_name;
   void (*fnc)(va_list ap);
-} g_my_struct;
+} g_specifiers;
 
 void print_s(va_list ap);
 
