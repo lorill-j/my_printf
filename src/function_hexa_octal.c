@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Sat Mar 25 14:44:28 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 15:15:19 2017 LORILLARD Jimmy
+** Last update Sat Mar 25 15:41:01 2017 LORILLARD Jimmy
 */
 
 #include "../inc/my_printf.h"
@@ -33,10 +33,7 @@ void            my_print_octal(int n)
 	l++;
       }
   while (k != -1)
-    {
-      my_put_nbr(octal[k]);
-      k--;
-    }
+    my_put_nbr(octal[k--]);
   free(octal);
 }
 

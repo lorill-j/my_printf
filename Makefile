@@ -5,7 +5,7 @@
 ## Login   <lorill_j@etna-alternance.net>
 ## 
 ## Started on  Fri Mar 24 16:27:08 2017 LORILLARD Jimmy
-## Last update Sat Mar 25 15:16:38 2017 LORILLARD Jimmy
+## Last update Sat Mar 25 15:59:50 2017 LORILLARD Jimmy
 ##
 
 NAME		=	my_printf
@@ -20,7 +20,7 @@ SRC 		= src/lib/my_putchar.c \
 		src/my_print_opts2.c \
 		src/my_printf.c
 
-INC_DIR			=	.
+INC_DIR			=	inc/
 
 OBJ			=	$(SRC:%.c=%.o)
 
