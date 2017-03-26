@@ -5,10 +5,10 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Sat Mar 25 14:46:54 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 15:05:21 2017 LORILLARD Jimmy
+** Last update Sun Mar 26 20:25:42 2017 LORILLARD Jimmy
 */
 
-void	my_putchar(char c);
+#include "../../inc/my_printf.h"
 
 void	my_putstr(const char *str)
 {

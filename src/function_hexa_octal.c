@@ -5,7 +5,7 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Sat Mar 25 14:44:28 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 22:19:33 2017 LORILLARD Jimmy
+** Last update Sun Mar 26 20:07:45 2017 LORILLARD Jimmy
 */
 
 #include "../inc/my_printf.h"
@@ -107,7 +107,7 @@ void		my_min_hexa(unsigned int n)
       k++;
     }
   l = k;
-  hexa = malloc((k + 1) * sizeof(int));
+  hexa = xmalloc((k + 1) * sizeof(int));
     while (i >= 16)
       {
 	k = i % 16;

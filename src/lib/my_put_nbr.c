@@ -5,16 +5,10 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Sat Mar 25 14:48:57 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 15:05:06 2017 LORILLARD Jimmy
+** Last update Sun Mar 26 20:24:53 2017 LORILLARD Jimmy
 */
 
-void	my_putchar(char c);
-
-void	my_put_nbr(int n);
-
-void	my_put_int(int n);
-
-void	my_putstr(char *str);
+#include "../../inc/my_printf.h"
 
 void	my_put_nbr(int n)
 {

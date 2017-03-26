@@ -5,13 +5,14 @@
 ** Login   <lorill_j@etna-alternance.net>
 ** 
 ** Started on  Fri Mar 24 16:26:03 2017 LORILLARD Jimmy
-** Last update Sat Mar 25 22:22:54 2017 LORILLARD Jimmy
+** Last update Sun Mar 26 20:27:24 2017 LORILLARD Jimmy
 */
 
 #ifndef _MY_PRINTF_H_
 # define _MY_PRINTF_H_
 
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
@@ -41,7 +42,17 @@ void print_X(va_list ap);
 
 void my_print_octal(int n);
 
+int my_printf(const char *str, ...);
+
+int check_argnbr(const char *str);
+
+int is_specifier(char c);
+
 void my_print_hexa(int *hexa, int l, int i);
+
+void get_args(char c, va_list ap);
+
+void my_str_replace(const char *str, int arg_nbr, va_list ap);
 
 void my_min_hexa(unsigned int);
 
@@ -54,6 +65,10 @@ void my_putstr(const char *str);
 void my_put_unbr(unsigned int n);
 
 void my_put_nbr(int n);
+
+void my_put_int(int n);
+
+void my_put_uint(unsigned int n);
 
 void my_getnbr(char *str);
 
