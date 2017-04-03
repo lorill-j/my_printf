@@ -120,7 +120,7 @@ int main(void)
   my_printf("3 %i\n", 42);
   my_printf("4 %o\n", 458);
   my_printf("5 %s %d %s%c", "avec", 4, "parametres", '\n');
-  my_printf("6 %u\n", (unsigned int)4200000000);
+  my_printf("6 %u\n", 4200000000);
   my_printf("8 %X\n", 2000000);
   my_printf("9 %x\n", 2000000);
   return (0);

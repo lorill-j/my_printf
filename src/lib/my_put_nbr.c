@@ -12,7 +12,7 @@
 
 void	my_put_nbr(int n)
 {
-  if (n == -2147483648)
+  if (n == -2147483647)
     {
       my_putstr("-2147483648");
       return ;

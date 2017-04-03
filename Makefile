@@ -25,8 +25,6 @@ INC_DIR			=	inc/
 
 OBJ			=	$(SRC:%.c=%.o)
 
-CFLAGS			=   	-Wall -Werror -Wpedantic
-
 CC			=	gcc
 
 RM			=	rm -f
